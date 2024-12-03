@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitFreak - About</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden; 
+            font-family: Arial, sans-serif;
+        }
+
+        .bg {
+            background-image: url('GymEquipment.jpg');
+            background-color: rgba(250,235,215,0.5);
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            width: 100vw;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav_style {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: end; 
+            padding: 10px 20px; 
+            z-index: 10;
+            background-color: rgba(0, 0, 0, 0.7);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            box-sizing: border-box;
+        }
+
+        .nav_style nav {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .nav_style a {
+            color: rgb(241, 113, 22); 
+            text-decoration: none; 
+            padding: 5px 10px; 
+            font-size: 16px; 
+        }
+
+        .nav_style a:hover {
+            border: #000000 1px solid;
+            border-radius: 5px;
+            box-shadow: inset 0 0 30px #000000;
+        }
+        .cointainer {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 800px;
+            height: auto;
+        }
+
+        footer {
+            background-color: #000000;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        footer a {
+            color: #fff;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+        iframe {
+            width: 50%;
+            height: 100px;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg">
+        <div class="nav_style">
+            <nav>
+                <a href="home.html" target="_blank"><span>Home</span></a>
+                <a href="login.html" target="_blank"><span>Login</span></a>
+                <a href="about.html" target="_blank"><span>About</span></a>
+                <a href="contact.html" target="_blank"><span>Contact</span></a>
+                <a href="feedback.html" target="_blank"><span>Feedback</span></a>
+            </nav>
+        </div>
+        <div class="cointainer">
+            <h2>Contact Us</h2>
+            <p>For any queries, please contact us at:</p>
+            <p>Email: fitfreak@gmail.com</p>
+            <p>Phone: +123 456 789</p>
+            <p>OR</p>
+            <p>Visit us at : </p>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3740.7805546628915!2d85.80376107469677!3d20.350682310723467!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a1908e064769e73%3A0x9288172f3a98c7a4!2sSilicon%20University!5e0!3m2!1sen!2sin!4v1727335409424!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+
+    <footer>
+        <p>Follow us:</p>
+        <a href="#">Facebook</a>
+        <a href="#">Instagram</a>
+        <a href="#">Twitter</a>
+        <p>Contact us: info@fitfreak.com | +123 456 789</p>
+    </footer>
+</body>
+</html>

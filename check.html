@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitFreak</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
+        }
+        
+        .nav_style {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: flex-end; 
+            padding: 10px 20px; 
+            background-color: rgba(0, 0, 0, 0.7); 
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            z-index: 10;
+            box-sizing: border-box;
+        }
+        
+        .nav_style nav {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .nav_style a {
+            color: rgba(255, 165, 0, 1); 
+            text-decoration: none; 
+            padding: 5px 10px; 
+            font-size: 16px; 
+        }
+        
+        .nav_style a:hover {
+            color: rgba(255, 255, 0, 1);
+        }
+        
+        .slider-container {
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+            margin-top: 60px; /* Give space for navbar */
+        }
+
+        .slides {
+            display: flex;
+            width: 400%; /* Four slides in total */
+            height: 100%;
+            transition: transform 0.5s ease-in-out; /* Smooth transition */
+        }
+        
+        .slider input {
+            display: none;
+        }
+
+        .slide {
+            width: 100vw; /* Each slide takes up full viewport width */
+            height: 100%;
+        }
+        
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* Targeting individual slides when radio buttons are checked */
+        #slide1:checked ~ .slides {
+            transform: translateX(0); /* First slide (0%) */
+        }
+
+        #slide2:checked ~ .slides {
+            transform: translateX(-100vw); /* Second slide (-100vw) */
+        }
+
+        #slide3:checked ~ .slides {
+            transform: translateX(-200vw); /* Third slide (-200vw) */
+        }
+
+        #slide4:checked ~ .slides {
+            transform: translateX(-300vw); /* Fourth slide (-300vw) */
+        }
+        
+        /* Dots for slides */
+        .slide-box {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+        
+        .slide-box label {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #fff;
+            cursor: pointer;
+        }
+        
+        /* Highlighting active slide dot */
+        #slide1:checked ~ .slide-box label:nth-child(1),
+        #slide2:checked ~ .slide-box label:nth-child(2),
+        #slide3:checked ~ .slide-box label:nth-child(3),
+        #slide4:checked ~ .slide-box label:nth-child(4) {
+            background: #ff0;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="nav_style">
+        <nav>
+            <a href="home.html" target="_blank"><span>Home</span></a>
+            <a href="login.html" target="_blank"><span>Login</span></a>
+            <a href="about.html" target="_blank"><span>About</span></a>
+            <a href="contact.html" target="_blank"><span>Contact</span></a>
+        </nav>                
+    </div>
+
+    <div class="slider-container">
+        <!-- Radio buttons to control the slides -->
+        <input type="radio" name="slider" id="slide1" checked>
+        <input type="radio" name="slider" id="slide2">
+        <input type="radio" name="slider" id="slide3">
+        <input type="radio" name="slider" id="slide4">
+
+        <!-- Slider images -->
+        <div class="slides">
+            <div class="slide">
+                <img src="figure.jpg" alt="slide1">
+            </div>
+            <div class="slide">
+                <img src="lifting.jpg" alt="slide2">
+            </div>
+            <div class="slide">
+                <img src="GymEquipment.jpg" alt="slide3">
+            </div>
+            <div class="slide">
+                <img src="GymEquipment.jpg" alt="slide4">
+            </div>
+        </div>
+
+        <!-- Dots for navigation -->
+        <div class="slide-box">
+            <label for="slide1"></label>
+            <label for="slide2"></label>
+            <label for="slide3"></label>
+            <label for="slide4"></label>
+        </div>
+    </div>
+</body>
+</html>

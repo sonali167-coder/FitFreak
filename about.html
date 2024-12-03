@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitFreak - About</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden; 
+            font-family: Arial, sans-serif;
+        }
+
+        .bg {
+            background-image: url('GymEquipment.jpg');
+            background-color: rgba(250,235,215,0.5);
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            width: 100vw;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav_style {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: end; 
+            padding: 10px 20px; 
+            z-index: 10;
+            background-color: rgba(0, 0, 0, 0.7);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            box-sizing: border-box;
+        }
+
+        .nav_style nav {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .nav_style a {
+            color: rgb(241, 113, 22); 
+            text-decoration: none; 
+            padding: 5px 10px; 
+            font-size: 16px; 
+        }
+
+        .nav_style a:hover {
+            border: #000000 1px solid;
+            border-radius: 5px;
+            box-shadow: inset 0 0 30px #000000;
+        }
+
+        .div1 {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            width: 90%; 
+            max-width: 800px;
+            display: grid;
+            grid-template-columns: 1fr;
+            row-gap: 20px;
+        }
+
+        .div2 {
+            padding: 10px;
+        }
+
+        @media (min-width: 768px) {
+            .div1 {
+                grid-template-columns: 1fr 1fr;
+                column-gap: 30px;
+            }
+        }
+
+        footer {
+            background-color: #000000;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        footer a {
+            color: #fff;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg">
+        <div class="nav_style">
+            <nav>
+                <a href="home.html" target="_blank"><span>Home</span></a>
+                <a href="login.html" target="_blank"><span>Login</span></a>
+                <a href="about.html" target="_blank"><span>About</span></a>
+                <a href="contact.html" target="_blank"><span>Contact</span></a>
+                <a href="feedback.html" target="_blank"><span>Feedback</span></a>
+            </nav>
+        </div>
+        <div class="div1">
+            <div class="div2">
+                <h2>About Us</h2>
+                <p>FitFreak is a fitness center that offers a wide range of services to help you achieve your fitness goals. Our team of experienced trainers will guide you through your fitness journey, providing you with the support and motivation you need to succeed. Whether you're looking to lose weight, build muscle, or improve your overall health, FitFreak has the tools and resources to help you reach your goals. So why wait? Join FitFreak today and start your journey to a healthier, happier you!</p>
+            </div>
+            <div class="div2">
+                <h2>Mission</h2>
+                <p>"Our mission is to empower individuals to achieve their fitness goals by providing a supportive community, personalized training, and state-of-the-art facilities. We are dedicated to promoting healthy lifestyles and helping members of all fitness levels reach their full potential."</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Follow us:</p>
+        <a href="#">Facebook</a>
+        <a href="#">Instagram</a>
+        <a href="#">Twitter</a>
+        <p>Contact us: info@fitfreak.com | +123 456 789</p>
+    </footer>
+</body>
+</html>

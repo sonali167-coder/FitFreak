@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitFreak</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden; 
+            font-family: Arial, sans-serif;
+        }
+
+        .nav_style {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between; 
+            padding: 10px 20px; 
+            background-color: rgba(0, 0, 0, 0.7); 
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            z-index: 10;
+            box-sizing: border-box;
+        }
+        
+
+        .nav_style nav {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .nav_style a {
+            color: rgb(241, 113, 22); 
+            text-decoration: none; 
+            padding: 5px 10px; 
+            font-size: 16px; 
+        }
+
+        .nav_style a:hover {
+            border: #000000 1px solid;
+            border-radius: 5px;
+            box-shadow: inset 0 0 30px #000000;
+        }
+        .logo_jar {
+            display: flex;
+            align-items: center;
+        }
+        .logo_jar img{
+            height: 50px;
+            width: auto;
+            margin-right: 10px;
+        }
+        .logo_jar h1{
+            color: rgb(241, 113, 22);
+            font-size: 24px;
+            margin: 0;
+        }
+
+        .slideshow-container {
+            width: 100vw;
+            height: auto;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .mySlides {
+            display: none;
+        }
+
+        img {
+            vertical-align: middle;
+            width: 100%;
+        }
+
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+        }
+
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .prev:hover, .next:hover {
+            background-color: rgba(0,0,0,0.8);
+        }
+
+
+        .fade {
+            animation-name: fade;
+            animation-duration: 1.5s;
+        }
+
+        @keyframes fade {
+            from {opacity: .4} 
+            to {opacity: 1}
+        }
+
+        /* Responsive text */
+        @media only screen and (max-width: 300px) {
+            .prev, .next, .text {font-size: 11px}
+        }
+
+        /* Welcome section */
+        .welcome-section {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: #000000;
+        }
+        .welcome-section h1 {
+            margin-bottom: 20px;
+            color: rgb(241, 113, 22);
+        }
+        .welcome-section p {
+            margin-bottom: 20px;
+            color: rgb(199, 96, 22);
+        }
+        .events-section {
+            padding: 50px 20px;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+        
+        .events-section h2 {
+            color: #f17116;
+            margin-bottom: 30px;
+            font-size: 28px;
+        }
+        
+        .events {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .events-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        .events-item img {
+            width: 100px;
+            height: 100px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        
+        .event-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .event-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #f17116;
+            margin-bottom: 10px;
+        }
+        
+        .event-date, .event-time, .event-location {
+            margin: 5px 0;
+            color: #666;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 10px 0 0 0;
+            background-color: rgba(199, 96, 22 ,0.8);
+            color: black;
+            font-weight: 100;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ;
+            border: none;
+            cursor: pointer;
+        }
+        
+        button:hover {
+            transform: translateY(-3px); 
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); 
+            background-color: rgba(241, 113, 22, 0.9); 
+        }
+        
+        
+
+        .programs-section_grid {
+            padding: 50px 20px;
+            background-color: #f9f9f9;
+            text-align: center; 
+        }
+        .programs-section{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .program_item {
+            padding: 20px;
+            border: 1px solid #ccc;
+            text-align: center;
+            background-color: #fff; 
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .program_item:hover {
+            transform: translateY(-5px); 
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+        }
+        
+        
+        
+        .programs-section img {
+            width: 120px;
+        }
+        
+
+        .feedback_grid {
+            background-color: #f4f4f4;
+            padding: 40px; 
+            display: grid;
+            grid-template-columns: auto auto auto; 
+            column-gap: 30px; 
+            row-gap: 20px;
+            border-radius: 10px; 
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+        }
+        
+        .feedback_grid h3 {
+            text-align: center;
+            grid-column: 1 / -1;
+            font-size: 24px; 
+            color: #333; 
+            margin-bottom: 20px; 
+        }
+        
+        .grid_item {
+            padding: 20px;
+            border: 1px solid #ccc;
+            text-align: center;
+            background-color: #fff; 
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .grid_item:hover {
+            transform: translateY(-5px); 
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+        }
+        
+        
+        .grid_item .client-name {
+            font-weight: bold; 
+            margin-top: 10px; 
+            color: #555; 
+        }     
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        footer a {
+            color: #fff;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav_style">
+        <div class="logo_jar">
+            <img src="logo1.jpeg" alt="FitFreak Logo">
+            <h1>FitFreak</h1>
+        </div>
+        <nav>
+            <a href="home.html" target="_blank"><span>Home</span></a>
+            <a href="login.html" target="_blank"><span>Login</span></a>
+            <a href="about.html" target="_blank"><span>About</span></a>
+            <a href="contact.html" target="_blank"><span>Contact</span></a>
+            <a href="feedback.html" target="_blank"><span>Feedback</span></a>
+        </nav>                
+    </div>
+
+    <div class="welcome-section">
+        <h1>Welcome to FitFreak</h1>
+        <p>Your fitness journey starts here. Push your limits and reach new heights!</p>
+    </div>
+
+    <!-- Slideshow -->
+    <div class="slideshow-container">
+        <div class="mySlides fade">
+            <img src="figure.jpg" alt="Slide 1">
+        </div>
+
+        <div class="mySlides fade">
+            <img src="GymEquipment.jpg" alt="Slide 2">
+        </div>
+
+        <div class="mySlides fade">
+            <img src="lifting.jpg" alt="Slide 3">
+        </div>
+
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+
+    <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span> 
+        <span class="dot" onclick="currentSlide(2)"></span> 
+        <span class="dot" onclick="currentSlide(3)"></span> 
+    </div>
+
+    <!-- Events Section -->
+<div class="events-section">
+    <h2>Upcoming Events</h2>
+    <div class="events">
+        <div class="events-item">
+            <img src="yoga_workshop.jpg" alt="Yoga Workshop">
+            <div class="event-content">
+                <h3 class="event-title">Yoga Workshop</h3>
+                <p class="event-date">Date: October 5, 2024</p>
+                <p class="event-time">Time: 10:00 AM - 12:00 PM</p>
+                <p class="event-location">Location: FitFreak Studio, Downtown</p>
+                <button>ENROLL</button>
+            </div>
+        </div>
+    
+        <div class="events-item">
+            <img src="hiit.jpeg" alt="HIIT Bootcamp">
+            <div class="event-content">
+                <h3 class="event-title">HIIT Bootcamp</h3>
+                <p class="event-date">Date: October 10, 2024</p>
+                <p class="event-time">Time: 6:00 PM - 7:30 PM</p>
+                <p class="event-location">Location: FitFreak Gym, Westside</p>
+                <button>ENROLL</button>
+            </div>
+        </div>
+    
+        <div class="events-item">
+            <img src="nutrition.jpeg" alt="Nutrition Seminar">
+            <div class="event-content">
+                <h3 class="event-title">Nutrition Seminar</h3>
+                <p class="event-date">Date: October 15, 2024</p>
+                <p class="event-time">Time: 1:00 PM - 3:00 PM</p>
+                <p class="event-location">Location: FitFreak Hall, Uptown</p>
+                <button>ENROLL</button>
+            </div>
+        </div>
+    
+        <div class="events-item">
+            <img src="spin.jpeg" alt="Spin Class Marathon">
+            <div class="event-content">
+                <h3 class="event-title">Spin Class Marathon</h3>
+                <p class="event-date">Date: October 20, 2024</p>
+                <p class="event-time">Time: 8:00 AM - 11:00 AM</p>
+                <p class="event-location">Location: FitFreak Studio, City Center</p>
+                <button>ENROLL</button>
+            </div>
+        </div>
+    
+        <div class="events-item">
+            <img src="pilates.jpeg" alt="Pilates Challenge">
+            <div class="event-content">
+                <h3 class="event-title">Pilates Challenge</h3>
+                <p class="event-date">Date: October 25, 2024</p>
+                <p class="event-time">Time: 9:00 AM - 11:30 AM</p>
+                <p class="event-location">Location: FitFreak Gym, Lakeside</p>
+                <button>ENROLL</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    
+    <!-- Programs Section -->
+<div class="programs-section_grid">
+    <h2>Our Programs</h2> 
+    <div class="programs-section">
+        <div class="program_item">
+            <img src="personal.jpg" alt="Personal Training">
+            <h3>Personal Training</h3>
+            <p>Receive personalized guidance from expert trainers who focus solely on your fitness goals.</p>
+        </div>
+        <div class="program_item">
+            <img src="group.jpg" alt="Group Classes">
+            <h3>Group Classes</h3>
+            <p>Enjoy fun, dynamic workouts in a group setting, perfect for motivation and camaraderie.</p>
+        </div>
+        <div class="program_item">
+            <img src="nutrition_plan.jpeg" alt="Nutrition Plans"><br><br>
+            <h3>Nutrition Plans</h3>
+            <p>Customized nutrition plans tailored to your fitness goals and dietary needs.</p>
+        </div>
+        <div class="program_item">
+            <img src="online_gym.jpg" alt="Online Coaching"><br><br>
+            <h3>Online Coaching</h3>
+            <p>Stay on track with virtual sessions and a tailored workout plan wherever you are.</p>
+        </div>
+        <div class="program_item">
+            <img src="rehab.jpeg" alt="Rehabilitation Programs"><br><br>
+            <h3>Rehabilitation Programs</h3>
+            <p>Safely recover from injury with our expert-guided rehabilitation sessions.</p>
+        </div>
+    </div>
+</div>
+
+
+    <!-- Client Feedback Section -->
+    <div class="feedback_grid">
+        <h3>What Our Clients say!</h3>
+        <div class="grid_item">
+            FitFreak transformed my life. I feel stronger than ever!<br><br>
+            <div class="client_name">- Alex</div>
+        </div>
+        <div class="grid_item">
+            FitFreak is the best gym I've ever been to. The trainers are amazing!<br><br>
+            <div class="client_name">- Sahara</div>
+        </div>
+        <div class="grid_item">
+            I lost 20 pounds and gained so much confidence. Best decision ever!<br><br>
+            <div class="client_name">- Jordon</div>
+        </div>              
+        
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>Follow us:</p>
+        <a href="#">Facebook</a>
+        <a href="#">Instagram</a>
+        <a href="#">Twitter</a>
+        <p>Contact us: info@fitfreak.com | +123 456 789</p>
+    </footer>
+
+    <!-- Slideshow Script -->
+    <script>
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            let dots = document.getElementsByClassName("dot");
+            if (n > slides.length) {slideIndex = 1}    
+            if (n < 1) {slideIndex = slides.length}
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex-1].style.display = "block";  
+            dots[slideIndex-1].className += " active";
+        }
+    </script>
+</body>
+</html>
